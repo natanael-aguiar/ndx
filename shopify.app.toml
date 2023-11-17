@@ -1,0 +1,24 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "ndx"
+client_id = "e5073dcacd59a0eaca1843fdd9c49dad"
+application_url = "https://charter-passage-solomon-two.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://charter-passage-solomon-two.trycloudflare.com/auth/callback",
+  "https://charter-passage-solomon-two.trycloudflare.com/auth/shopify/callback",
+  "https://charter-passage-solomon-two.trycloudflare.com/api/auth/callback",
+  "https://charter-passage-solomon-two.trycloudflare.com/.shopify/graphiql/auth/callback"
+]
+
+[webhooks]
+api_version = "2023-10"
+
+[pos]
+embedded = false
