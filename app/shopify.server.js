@@ -26,8 +26,10 @@ const shopify = shopifyApp({
     },
     ORDERS_CREATE: {
       deliveryMethod: DeliveryMethod.Http,
-      callbackUrl:
-        "https://41fa-2804-431-c7c7-fc5d-d16b-d7f2-bfc8-7524.ngrok-free.app/shopify"
+      callbackUrl: "/webhooks",
+      callback: async ({ session, payload }) => {
+        console.log("ORDERS_CREATE", session, payload);
+      }
     }
   },
   hooks: {
