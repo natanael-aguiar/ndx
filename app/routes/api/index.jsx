@@ -12,6 +12,12 @@ export const loader = async ({ request }) => {
           description
           tags
           vendor
+          productType
+          options {
+            name
+            position
+            values
+          }
         }
       }
     }`);
@@ -34,5 +40,13 @@ export const loader = async ({ request }) => {
     },
   } = await response.json();
 
-  return json({ nodes, tags: await tags.json() });
+  const { data: {
+    shop: {
+      productTags: {
+        edges: _tags
+      }
+    }
+  } } = await tags.json()
+
+  return json({ nodes, tags: _tags.map(o => o.node) });
 };
