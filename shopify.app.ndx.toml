@@ -2,7 +2,7 @@
 
 name = "ndx"
 client_id = "6528972e92438bcdf169c9d59b380358"
-application_url = "https://britney-coffee-tx-israel.trycloudflare.com"
+application_url = "https://ist-spelling-rrp-listings.trycloudflare.com"
 embedded = true
 
 [access_scopes]
@@ -11,10 +11,10 @@ scopes = "write_products,read_orders,write_orders"
 
 [auth]
 redirect_urls = [
-  "https://britney-coffee-tx-israel.trycloudflare.com/auth/callback",
-  "https://britney-coffee-tx-israel.trycloudflare.com/auth/shopify/callback",
-  "https://britney-coffee-tx-israel.trycloudflare.com/api/auth/callback",
-  "https://britney-coffee-tx-israel.trycloudflare.com/.shopify/graphiql/auth/callback"
+  "https://ist-spelling-rrp-listings.trycloudflare.com/auth/callback",
+  "https://ist-spelling-rrp-listings.trycloudflare.com/auth/shopify/callback",
+  "https://ist-spelling-rrp-listings.trycloudflare.com/api/auth/callback",
+  "https://ist-spelling-rrp-listings.trycloudflare.com/.shopify/graphiql/auth/callback"
 ]
 
 [webhooks]

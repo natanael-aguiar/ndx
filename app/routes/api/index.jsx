@@ -10,6 +10,20 @@ export const loader = async ({ request }) => {
         nodes {
           title
           description
+          tags
+          vendor
+        }
+      }
+    }`);
+
+  const tags = await admin.graphql(`
+    {
+      shop{
+        productTags(first: 250){
+          edges{
+            cursor
+            node
+          }
         }
       }
     }`);
@@ -20,5 +34,5 @@ export const loader = async ({ request }) => {
     },
   } = await response.json();
 
-  return json(nodes);
+  return json({ nodes, tags: await tags.json() });
 };
