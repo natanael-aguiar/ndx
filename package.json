@@ -2,7 +2,7 @@
   "name": "ndx",
   "private": true,
   "scripts": {
-    "build": "remix build",
+    "build": "npm i --force && remix build",
     "predev": "prisma generate && prisma migrate deploy",
     "dev": "shopify app dev",
     "config:link": "shopify app config link",
