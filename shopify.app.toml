@@ -1,24 +1,34 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-name = "ndx"
-client_id = "e5073dcacd59a0eaca1843fdd9c49dad"
-application_url = "https://charter-passage-solomon-two.trycloudflare.com"
+client_id = "ae687ea2b4cae3b9e574bc43aaf01cf5"
+name = "The Fashion NDX"
+handle = "the-fashion-ndx"
+application_url = "https://packing-wishes-world-rough.trycloudflare.com"
 embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "test-shop004.myshopify.com"
+include_config_on_deploy = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products"
+scopes = "read_orders,read_products"
 
 [auth]
 redirect_urls = [
-  "https://charter-passage-solomon-two.trycloudflare.com/auth/callback",
-  "https://charter-passage-solomon-two.trycloudflare.com/auth/shopify/callback",
-  "https://charter-passage-solomon-two.trycloudflare.com/api/auth/callback",
-  "https://charter-passage-solomon-two.trycloudflare.com/.shopify/graphiql/auth/callback"
+  "https://packing-wishes-world-rough.trycloudflare.com/auth/callback",
+  "https://packing-wishes-world-rough.trycloudflare.com/auth/shopify/callback",
+  "https://packing-wishes-world-rough.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
-api_version = "2023-10"
+api_version = "2024-04"
+
+  [webhooks.privacy_compliance]
+  customer_deletion_url = "https://packing-wishes-world-rough.trycloudflare.com/webhooks/customer_deletion"
+  customer_data_request_url = "https://packing-wishes-world-rough.trycloudflare.com/webhooks/customer_request"
+  shop_deletion_url = "https://packing-wishes-world-rough.trycloudflare.com/webhooks/deletion"
 
 [pos]
 embedded = false

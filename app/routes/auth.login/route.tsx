@@ -1,5 +1,7 @@
 import { useState } from "react";
+import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
+import { Form, useActionData, useLoaderData } from "@remix-run/react";
 import {
   AppProvider as PolarisAppProvider,
   Button,
@@ -9,23 +11,22 @@ import {
   Text,
   TextField,
 } from "@shopify/polaris";
-import { Form, useActionData, useLoaderData } from "@remix-run/react";
-import polarisStyles from "@shopify/polaris/build/esm/styles.css";
+import polarisTranslations from "@shopify/polaris/locales/en.json";
+import polarisStyles from "@shopify/polaris/build/esm/styles.css?url";
+
 import { login } from "../../shopify.server";
+
 import { loginErrorMessage } from "./error.server";
 
 export const links = () => [{ rel: "stylesheet", href: polarisStyles }];
 
-export const loader = async ({ request }) => {
+export const loader = async ({ request }: LoaderFunctionArgs) => {
   const errors = loginErrorMessage(await login(request));
 
-  return json({
-    errors,
-    polarisTranslations: require(`@shopify/polaris/locales/en.json`),
-  });
+  return json({ errors, polarisTranslations });
 };
 
-export const action = async ({ request }) => {
+export const action = async ({ request }: ActionFunctionArgs) => {
   const errors = loginErrorMessage(await login(request));
 
   return json({
@@ -34,8 +35,8 @@ export const action = async ({ request }) => {
 };
 
 export default function Auth() {
-  const loaderData = useLoaderData();
-  const actionData = useActionData();
+  const loaderData = useLoaderData<typeof loader>();
+  const actionData = useActionData<typeof action>();
   const [shop, setShop] = useState("");
   const { errors } = actionData || loaderData;
 
